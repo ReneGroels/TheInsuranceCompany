@@ -90,5 +90,10 @@ namespace TIC.ServiceAdapter.Stubs
         {
             return Insurances;
         }
+
+        public static IEnumerable<TravelInsurance> GetDutchTravelInsurances()
+        {
+            return Insurances.Where(i => i is TravelInsurance).Select(i => new TravelInsurance { Description = i.Description, InsurancePremium = i.InsurancePremium, Name = i.Name, InsuredAmount = ((TravelInsurance)i).InsuredAmount });
+        }
     }
 }

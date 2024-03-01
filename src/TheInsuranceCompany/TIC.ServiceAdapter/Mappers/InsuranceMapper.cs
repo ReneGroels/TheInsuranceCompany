@@ -9,6 +9,11 @@ namespace TIC.ServiceAdapter.Mappers
             return insurances.Select(insurance => insurance.Map()).ToList();
         }
 
+        public static ICollection<DomainModel.TravelInsurance> Map(this IEnumerable<TravelInsurance> insurances)
+        {
+            return insurances.Select(i => Map(i)).ToList();
+        }
+
         public static DomainModel.Insurance Map(this Insurance insurance)
         {
             if (insurance is CarInsurance carInsurance)
